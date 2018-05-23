@@ -31,7 +31,7 @@
 
 
       ?>
-      
+
          <div class="container">
             <h1 class="post-title"> <?php echo $posts[$posts_key]['title']; ?></h1>
             <h3 class="post-date"> <?php echo $posts[$posts_key]['published_at']; ?> </h3>
