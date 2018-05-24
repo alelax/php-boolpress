@@ -13,29 +13,30 @@
 
       foreach ($posts as $post) {
 
-         foreach ($post as $post_key => $tag) {
+         if (in_array($value, $post['tag'])) {
 
-            if ($post_key == 'tag') {
+               $data = [
+                  'title' => $post['title'],
+                  'content' => $post['content'],
+                  'image' => $post['image'],
+                  'tag' => [$value],
+                  'slug' => $post['slug'],
+                  'published_at' => $post['published_at']
+               ];
 
-               if (in_array($value, $tag)) {
-                  $data = [
-                     'title' => $post['title'],
-                     'content' => $post['content'],
-                     'image' => $post['image'],
-                     'tag' => [$value],
-                     'slug' => $post['slug'],
-                     'published_at' => $post['published_at']
-                  ];
+               $new_data[] = $data;
 
-                  $new_data[] = $data;
-               }
-            }
          }
-      }
 
-   } elseif ($state == 'pressed') {
+
+
+
+
+      }
+   }   elseif ($state == 'pressed') {
       $new_data = $posts;
    }
+
 
 
    $new_data = json_encode($new_data);
